@@ -22,7 +22,8 @@ router.post('/', function(req, res, next) {
   //res.send("i have written");
   console.log("hiiii");
   var options = {
-    "jti":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWlsdG86bWlrZUBmb28uY29tIn0.Cd7gS9Vk4BiTjNPxhN6R14wAnR70CMW5v-AzfUrsNHU",
+    
+    //"jti":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWlsdG86bWlrZUBmb28uY29tIn0.Cd7gS9Vk4BiTjNPxhN6R14wAnR70CMW5v-AzfUrsNHU",
     "iat": new Date().getTime(),
     "exp": (new Date(new Date().getTime() + 60 * 59 * 1000).getTime())/1000,
     "aud": aud,
