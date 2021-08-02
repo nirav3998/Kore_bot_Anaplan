@@ -12,7 +12,7 @@
     botOptions.recorderWorkerPath = '../libs/recorderWorker.js';
 
     botOptions.JWTUrl = "https://kore-bot-anaplan.herokuapp.com/api/users/sts";
-    //botOptions.userIdentity = 'mendapara.nirav@tcs.com';// Provide users email id here
+    botOptions.userIdentity = 'mendapara.nirav@tcs.com';// Provide users email id here
     botOptions.botInfo = { name: "Anaplan_Assistant_2", "_id": "st-05c4e6b7-6e85-5fdf-bfed-b66ce480b71b" }; // bot name is case sensitive
     botOptions.clientId = "cs-812e4377-3a2a-5304-a83d-1095b50f6ff0";
     botOptions.clientSecret = "B8g8Sw0dm+H18qS+bE5cz8np7HpxjDd6GSvlnHUsl0w=";
