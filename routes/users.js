@@ -1,4 +1,5 @@
 var express = require('express');
+var crypt = require('crypto');
 var router = express.Router();
 var fs = require('fs');
 var config = require('../config');
@@ -21,9 +22,11 @@ router.post('/', function(req, res, next) {
   //var aud = "https://idproxy.kore.com/authorize";
   //res.send("i have written");
   //console.log("hiiii");
+  var val = crypt.randomBytes(64).toString('hex')
   var options = {
     
     //"jti":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWlsdG86bWlrZUBmb28uY29tIn0.Cd7gS9Vk4BiTjNPxhN6R14wAnR70CMW5v-AzfUrsNHU",
+    "jti" : val,
     "iat": new Date().getTime(),
     "exp": (new Date(new Date().getTime() + 60 * 59 * 1000).getTime())/1000,
     "aud": aud,
