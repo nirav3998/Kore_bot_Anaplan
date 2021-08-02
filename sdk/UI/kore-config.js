@@ -11,7 +11,7 @@
     botOptions.koreAnonymousFn = koreAnonymousFn;
     botOptions.recorderWorkerPath = '../libs/recorderWorker.js';
 
-    botOptions.JWTUrl = "http://127.0.0.1:3000/api/users/sts";
+    botOptions.JWTUrl = "https://kore-bot-anaplan.herokuapp.com/";
     botOptions.userIdentity = 'mendapara.nirav@tcs.com';// Provide users email id here
     botOptions.botInfo = { name: "Anaplan_Assistant_2", "_id": "st-05c4e6b7-6e85-5fdf-bfed-b66ce480b71b" }; // bot name is case sensitive
     botOptions.clientId = "cs-812e4377-3a2a-5304-a83d-1095b50f6ff0";
