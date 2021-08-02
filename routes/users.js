@@ -31,8 +31,8 @@ router.post('/', function(req, res, next) {
     "sub": identity,
     "isAnonymous": isAnonymous
   }
-	//var token = jwt.sign(options, clientSecret);
-  var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWlsdG86bWlrZUBmb28uY29tIn0.Cd7gS9Vk4BiTjNPxhN6R14wAnR70CMW5v-AzfUrsNHU"
+	var token = jwt.sign(options, clientSecret);
+  //var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWlsdG86bWlrZUBmb28uY29tIn0.Cd7gS9Vk4BiTjNPxhN6R14wAnR70CMW5v-AzfUrsNHU"
   res.header('alg', "HS256");
   res.header('JWT')
   res.header('Access-Control-Allow-Origin', "*");
