@@ -1,70 +1,128 @@
 <!DOCTYPE>
 <html>
 	<head>
-		<script src="UI/libs/jquery.js" type="text/javascript"></script>
-		<script src="UI/libs/jquery.tmpl.min.js" type="text/javascript"></script>
-		<script src="UI/libs/jquery-ui.min.js" type="text/javascript"></script>
-		<link href="UI/libs/jquery-ui.min.css" rel="stylesheet"></link>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=1.0">
+		<script src="libs/kore-no-conflict-start.js" type="text/javascript"></script>		
+		<script src="libs/jquery.js" type="text/javascript"></script>
+		<script src="libs/jquery.tmpl.min.js" type="text/javascript"></script>
+		<script src="libs/jquery-ui.min.js" type="text/javascript"></script>
+		<link href="libs/jquery-ui.min.css" rel="stylesheet"></link>
+		<script src="libs/moment.js" type="text/javascript"></script>
+		<script src="../libs/ie11CustomProperties.js"></script>
+		<script src="../libs/lodash.min.js"></script>
+		<script src="../libs/d3.v4.min.js"></script>
+		<script src="../libs/KoreGraphAdapter.js" type="text/javascript"></script>
+		<script src='../libs/anonymousassertion.js'></script>
+		<script src="../kore-bot-sdk-client.js"></script>
+		<script src="../libs/perfect-scrollbar.js" type="text/javascript"></script>
+	
+		<!-- Uncomment these lines for amazon polly -->
+		<!-- <script src="../plugins/aws-sdk-2.668.0.min.js"></script>
+		<script src="../plugins/kore-aws-polly.js" type="text/javascript"></script> -->
 		
-		<script src="libs/lodash.min.js"></script>
-		<script src='libs/anonymousassertion.js'></script>
-		<script src="kore-bot-sdk-client.js"></script>
-		<script src="UI/chatWindow.js" type="text/javascript"></script>
-		<link href="UI/chatWindow.css" rel="stylesheet"></link>
-		<script type="text/javascript">
-		$(document).on("ready",function(){
-			function assertion(options, callback) {
-
-				// Client has to fill the claims and call the callback.
-				$.ajax({
-					url: "https://bots.kore.com/api/users/sts",
-					type: 'post',
-					headers: {
-						Authorization: "bearer xyz------"
-					},
-					dataType: 'json',
-					success: function (data) {
-						options.assertion = data.jwt
-						callback(null, options);
-					}
-				})
+		<script src="chatWindow.js" type="text/javascript"></script>
+		<script src="libs/jquery.daterangepicker.js" type="text/javascript"></script>
+		<link href="libs/daterangepicker.css" rel="stylesheet"></link>
+		<script src="libs/jquery-clockpicker.js" type="text/javascript"></script>
+		<link href="libs/jquery-clockpicker.css" rel="stylesheet"></link>
+		<link href="../libs/kore-pickers.css" rel="stylesheet"></link>
+		<script src="../libs/kore-pickers.js" type="text/javascript"></script>
+		<script src="../libs/emoji.js" type="text/javascript"></script>
+		<script src="../libs/recorder.js" type="text/javascript"></script>
+		<script src="../libs/recorderWorker.js" type="text/javascript"></script>
+		<link href="chatWindow.css" rel="stylesheet"></link>
+		<link href="../libs/emojione.sprites.css" rel="stylesheet"></link>
+		<link href="../libs/purejscarousel.css" rel="stylesheet"></link>
+		<script src="../libs/purejscarousel.js" type="text/javascript"></script>
+		<script src="custom/customTemplate.js" type="text/javascript"></script>
+		<link href="../libs/prefect-scrollbar.css" rel="stylesheet"></link>
+		<link href="custom/customTemplate.css" rel="stylesheet"></link>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- <script type="text/javascript" src="libs/loader.js"></script>  -->
+		
+		<!-- Uncomment these lines for Google Speech. -->
+		<!-- <script type="text/javascript" src="../libs/speech/app.js"></script>
+		<script type="text/javascript" src="../libs/speech/key.js"></script>
+		<script type="text/javascript" src="https://apis.google.com/js/client.js"></script> -->
+		
+		
+		<script src="kore-config.js" type="text/javascript"></script>
+		<!-- <script src="kore-118n-config.js" type="text/javascript"></script> --> <!-- Uncomment for i18n support -->
+		<script src="kore-main.js" type="text/javascript"></script>	
+		<script src="libs/kore-no-conflict-end.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<style>
+			body {
+			  background-image: url('./building\ on\ belief.jpg');
+			  background-repeat: no-repeat;
+			  background-size: cover;
+			  margin: 0%;
 			}
+.header {
+  overflow: hidden;
+  background-color: black;
+}
 
-			var botOptions = {};
-			botOptions.logLevel = 'debug';
-			botOptions.koreAPIUrl = "https://pilot-bots.kore.com/api/";
-			botOptions.assertionFn = assertion;
-			botOptions.isLoggedIn = false; // false: triggers anonymus flow. set it to true for log-in flow.
-			/*
-			 Below config:(To support the anonymous user in test environments only.)
-			 Case.1:Anonymous User
-			        a. set it to false if the client defined the assertion for Anonymous User.
-			        b. set it to true if the client have not defined the assertion for Anonymous User.
-			 Case.2:Logged-In User
-			        a. set it to false if the client defined the assertion.
-			*/
-			botOptions.test = true;
-			botOptions.koreAnonymousFn = koreAnonymousFn;
-			botOptions.clientId   = "cs-8e62863b-13e9-5198-a55e-fdbd7047117a"; // secure client-id
-            
-			botOptions.botInfo = {name:"SAP Service","_id":"st-975926d5-2761-56bc-83f1-8f3c1b320bd8"}; // bot name is case sensitive
-			
-			var chatConfig={
-				botOptions:botOptions,
-				allowIframe: true
-			};
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
 
-			koreBotChat().show(chatConfig);
-			$('.openChatWindow').click(function(){
-				koreBotChat().show(chatConfig);
-			});
-		});
-		</script>
+.header div.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+  color:#C71585;
+  padding-right: 20px;
+
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+		</style>
+		
+		
+		
 	</head>
-	<body style="margin:0px;padding:0px">
-	   <img src="C4CServiceHome.png"/>
-		<div id="chatContainer" style="position: top; position: absolute; top: 0px;">
-		<button class="openChatWindow">Open Chat Window</button>
+	<body>
+		
+		<nav class="navbar navbar-expand-sm navbar-dark" style="background-color:black">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+				  <img src="./logo-final.png" alt="" width="" height="30px" >
+				</a>
+				<div class="navbar-right ">
+						<p style="color:#C11B66;text-align: right;margin-top: revert;">Building on belief</p>
+				</div>
+			</div>
+		</nav>
+		<div id="chatContainer">
+			<button class="openChatWindow">Open Chat Window</button>
 		</div>
 	</body>
 </html>

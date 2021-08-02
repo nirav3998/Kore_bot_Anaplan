@@ -1,5 +1,5 @@
 {
-  "name": "C4CService",
+  "name": "KoreAI",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "ejs": "^2.5.2",
     "express": "~4.13.4",
     "jade": "~1.11.0",
+    "jsonwebtoken": "^8.3.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
   }
