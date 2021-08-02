@@ -7,12 +7,19 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+const { Session } = require('inspector');
 
 var app = express();
 
 // view engine setup
 app.use(express.static(__dirname + '../public'));
 app.set('trust proxy',1);
+app.use(Session({
+  secret : 'anaplan',
+  resave : false,
+  saveUninitialized : true,
+  cookie :{secure : true  }
+}))
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'jade');
