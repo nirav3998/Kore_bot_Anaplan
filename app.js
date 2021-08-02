@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session')
 var path = require('path');
 //var favicon = require('serve-favicon');
 //var logger = require('morgan');
@@ -14,7 +15,7 @@ var app = express();
 // view engine setup
 app.use(express.static(__dirname + '../public'));
 app.set('trust proxy',1);
-app.use(Session({
+app.use(session({
   secret : 'anaplan',
   resave : false,
   saveUninitialized : true,
