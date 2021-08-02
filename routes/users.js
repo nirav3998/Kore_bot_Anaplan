@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
   var aud = req.body.aud || "https://idproxy.kore.com/authorize";
   //var aud = "https://idproxy.kore.com/authorize";
   //res.send("i have written");
-  console.log("hiiii");
+  //console.log("hiiii");
   var options = {
     
     "jti":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWlsdG86bWlrZUBmb28uY29tIn0.Cd7gS9Vk4BiTjNPxhN6R14wAnR70CMW5v-AzfUrsNHU",
